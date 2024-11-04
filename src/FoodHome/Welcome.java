@@ -97,7 +97,7 @@ public class Welcome extends javax.swing.JFrame {
     public static void main(String args[]) {
         Welcome we=new Welcome();
         we.setVisible(true);
-        Login login=new Login();
+        LoginForm login=new LoginForm();
         try{
             for (int i = 0; i <100; i=i+2) {
                 Thread.sleep(60);
