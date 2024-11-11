@@ -157,7 +157,6 @@ public void openEditAccount() {
         aboutB = new javax.swing.JButton();
         myAccountB = new javax.swing.JButton();
         SignoutB = new javax.swing.JButton();
-        menuB1 = new javax.swing.JButton();
         dashB = new javax.swing.JTabbedPane();
         dboard = new javax.swing.JPanel();
         barChart = new javax.swing.JPanel();
@@ -205,6 +204,11 @@ public void openEditAccount() {
         jSeparator1 = new javax.swing.JSeparator();
         MenuPanel = new javax.swing.JPanel();
         aboutPanel = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        aboutArea = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -358,20 +362,6 @@ public void openEditAccount() {
             }
         });
 
-        menuB1.setBackground(new java.awt.Color(255, 153, 51));
-        menuB1.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
-        menuB1.setForeground(new java.awt.Color(255, 255, 255));
-        menuB1.setText("MENU");
-        menuB1.setContentAreaFilled(false);
-        menuB1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuB1.setOpaque(true);
-        menuB1.setPreferredSize(new java.awt.Dimension(210, 40));
-        menuB1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuB1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -397,8 +387,7 @@ public void openEditAccount() {
                     .addComponent(myAccountB, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(aboutB, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inventoryB, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(menuB1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
@@ -414,17 +403,15 @@ public void openEditAccount() {
                 .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(inventoryB, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(menuB1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(64, 64, 64)
                 .addComponent(ordersB, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(55, 55, 55)
                 .addComponent(aboutB, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(49, 49, 49)
                 .addComponent(myAccountB, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(60, 60, 60)
                 .addComponent(SignoutB)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -523,7 +510,7 @@ public void openEditAccount() {
                 .addComponent(soldProducts)
                 .addGap(13, 13, 13)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel18)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -553,7 +540,7 @@ public void openEditAccount() {
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -597,7 +584,7 @@ public void openEditAccount() {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(TodayIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -656,7 +643,7 @@ public void openEditAccount() {
         );
 
         dboard.add(jPanel3);
-        jPanel3.setBounds(10, 20, 1523, 291);
+        jPanel3.setBounds(10, 20, 1523, 285);
 
         dashB.addTab("", dboard);
 
@@ -696,14 +683,14 @@ public void openEditAccount() {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1369, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -841,7 +828,7 @@ public void openEditAccount() {
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel30)
                             .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -891,7 +878,7 @@ public void openEditAccount() {
                             .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(41, 41, 41)
                         .addComponent(jLabel32)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(UpdateInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -917,7 +904,7 @@ public void openEditAccount() {
             .addGroup(inventoryLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1269, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inventoryLayout.setVerticalGroup(
             inventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -928,7 +915,7 @@ public void openEditAccount() {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         dashB.addTab("", inventory);
@@ -939,32 +926,73 @@ public void openEditAccount() {
         MenuPanel.setLayout(MenuPanelLayout);
         MenuPanelLayout.setHorizontalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2846, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1127, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         dashB.addTab("menu", MenuPanel);
 
-        jLabel19.setText("about");
+        aboutPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Homeicon.png"))); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 3, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 51, 0));
+        jLabel7.setText("ABOUT   US");
+
+        jScrollPane3.setBorder(null);
+
+        aboutArea.setColumns(20);
+        aboutArea.setRows(5);
+        aboutArea.setBorder(null);
+        jScrollPane3.setViewportView(aboutArea);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/professional-cook1.jpg"))); // NOI18N
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/food1.png"))); // NOI18N
 
         javax.swing.GroupLayout aboutPanelLayout = new javax.swing.GroupLayout(aboutPanel);
         aboutPanel.setLayout(aboutPanelLayout);
         aboutPanelLayout.setHorizontalGroup(
             aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aboutPanelLayout.createSequentialGroup()
-                .addGap(720, 720, 720)
-                .addComponent(jLabel19)
-                .addContainerGap(2094, Short.MAX_VALUE))
+                .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addGap(328, 328, 328)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1687, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1030, Short.MAX_VALUE))
         );
         aboutPanelLayout.setVerticalGroup(
             aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aboutPanelLayout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jLabel19)
-                .addContainerGap(989, Short.MAX_VALUE))
+                .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
 
         dashB.addTab("", aboutPanel);
@@ -1149,7 +1177,7 @@ public void openEditAccount() {
                     .addGroup(viewOrderPanelLayout.createSequentialGroup()
                         .addGap(542, 542, 542)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1426, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viewOrderPanelLayout.setVerticalGroup(
             viewOrderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1158,7 +1186,7 @@ public void openEditAccount() {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         dashB.addTab("tab6", viewOrderPanel);
@@ -1205,22 +1233,32 @@ public void openEditAccount() {
     private void aboutBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBActionPerformed
         // TODO add your handling code here:
         dashB.setSelectedIndex(3);
-        JPanel appInfoPanel = new JPanel();
-        appInfoPanel.setLayout(new BoxLayout(appInfoPanel, BoxLayout.Y_AXIS));
-        appInfoPanel.setBorder(BorderFactory.createTitledBorder("About Application"));
-        
-        JTextArea appInfoText = new JTextArea();
-        appInfoText.setText("Food Home\n\n" +
-                "Food Home is a platform dedicated to promoting cloud kitchens and their services. " +
-                "Our aim is to help cloud kitchens display their menus and reach a wider audience, " +
-                "while also providing customers a seamless way to browse and order food from their favorite kitchens. " +
-                "Through this platform, we aim to drive growth for cloud kitchens and offer more choices for customers.");
-        appInfoText.setFont(new Font("Arial", Font.PLAIN, 14));
-        appInfoText.setLineWrap(true);
-        appInfoText.setWrapStyleWord(true);
-        appInfoText.setEditable(false);
-        appInfoText.setBackground(appInfoPanel.getBackground());
-        appInfoPanel.add(appInfoText);
+
+aboutArea.setText(
+      
+    "Food Home is an innovative platform that allows cloud kitchens like ours to reach a broader audience and deliver high-quality meals directly to customers. \nAs a cloud kitchen owner, we understand the challenges of maintaining an online presence while keeping operational costs low. \nWith Food Home, we can showcase our menu, reach a large base of potential customers, and focus on what we do best – cooking delicious food.\n\n\n" +
+    "The platform offers a user-friendly interface, allowing customers to browse through various dishes, view images, check prices, and place orders with \njust a few taps. As a cloud kitchen, we can easily update our menu in real-time, making sure customers always have access to the latest offerings. \nThis flexibility helps us respond to market demand and keep our menu fresh and exciting.\n\n\n" +
+    "Food Home’s efficient delivery system ensures that our food reaches customers quickly and safely.\n With its seamless payment integration, customers can complete their transactions securely, \nand we can focus on preparing great food without worrying about the logistics.\n\n\n" +
+    "What sets Food Home apart is its dedication to supporting cloud kitchens like ours. \nInstead of managing our own delivery system, Food Home takes care of the promotion and logistics, allowing us to reduce overhead costs. \nThe app helps us expand our customer base by putting us in front of people who are actively searching for fresh and tasty food options."
+);
+
+
+aboutArea.setFont(new Font("Arial", Font.PLAIN, 18));
+aboutArea.setLineWrap(true);
+aboutArea.setWrapStyleWord(true);
+aboutArea.setEditable(false);
+aboutArea.setBackground(aboutPanel.getBackground());
+aboutArea.setBorder(null);
+// Add the JTextArea to the panel
+//aboutPanel.add(aboutArea);
+
+// Add the panel to the selected tab
+//dashB.setComponentAt(3, appInfoPanel); // Set the appInfoPanel to the 4th tab
+
+// Revalidate and repaint to refresh the tab display
+dashB.revalidate();
+dashB.repaint();
+
     }//GEN-LAST:event_aboutBActionPerformed
 
     private void inventoryBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryBActionPerformed
@@ -1295,17 +1333,6 @@ private void addProductToInventory() {
 }
 
     }
-    private void menuB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuB1ActionPerformed
-        // TODO add your handling code here:
-        try {
-        dashB.setSelectedIndex(2); // Check if the index is correct
-        loadMenuItems();
-    } catch (Exception e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error displaying menus: " + e.getMessage());
-    }
-    }//GEN-LAST:event_menuB1ActionPerformed
-
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
         // TODO add your handling code here:
         openEditAccount();
@@ -2166,6 +2193,7 @@ private String getMonthName(int month) {
     private javax.swing.JLabel TotalIncome;
     private javax.swing.JButton UpdateInventory;
     private javax.swing.JLabel UserName;
+    private javax.swing.JTextArea aboutArea;
     private javax.swing.JButton aboutB;
     private javax.swing.JPanel aboutPanel;
     private javax.swing.JButton addInventory;
@@ -2180,6 +2208,7 @@ private String getMonthName(int month) {
     private javax.swing.JLabel inventoryImg;
     private javax.swing.JTable inventoryTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
@@ -2202,8 +2231,10 @@ private String getMonthName(int month) {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -2220,9 +2251,9 @@ private String getMonthName(int month) {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel location;
-    private javax.swing.JButton menuB1;
     private javax.swing.JButton myAccountB;
     private javax.swing.JTextField name;
     private javax.swing.JTable orderTable;

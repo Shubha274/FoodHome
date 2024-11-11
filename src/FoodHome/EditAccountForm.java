@@ -23,7 +23,7 @@ public class EditAccountForm extends javax.swing.JFrame {
      */
      Connection con=DbConnect.connectDb();
      private AdminDash account;
-    
+   
     public EditAccountForm(AdminDash account) {
          this.account = account;
         initComponents();
