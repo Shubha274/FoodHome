@@ -197,7 +197,8 @@ public class ForgotPasswordForm extends javax.swing.JFrame {
 
     private void closeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBActionPerformed
         // TODO add your handling code here:
-        dispose();
+       this.dispose();
+       new LoginForm().setVisible(true);
     }//GEN-LAST:event_closeBActionPerformed
 
     private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed

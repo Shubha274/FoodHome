@@ -22,9 +22,9 @@ public class EditAccountForm extends javax.swing.JFrame {
      * Creates new form EditAccount
      */
      Connection con=DbConnect.connectDb();
-     private MyAccountForm account;
+     private AdminDash account;
     
-    public EditAccountForm(MyAccountForm account) {
+    public EditAccountForm(AdminDash account) {
          this.account = account;
         initComponents();
     }
@@ -252,7 +252,7 @@ public class EditAccountForm extends javax.swing.JFrame {
 
     private void closeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBActionPerformed
         // TODO add your handling code here:
-        dispose();
+       this.dispose();
     }//GEN-LAST:event_closeBActionPerformed
 
     private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed

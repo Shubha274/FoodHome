@@ -25,7 +25,7 @@ public class MyAccountForm extends javax.swing.JFrame {
      Connection con=DbConnect.connectDb();
     public MyAccountForm() {
         initComponents();
-        display();
+//        display();
 //         this.addWindowFocusListener(new WindowFocusListener() {
 //            public void windowGainedFocus(WindowEvent e) {
 //                display(); // Load the latest data every time the window gains focus
@@ -38,38 +38,38 @@ public class MyAccountForm extends javax.swing.JFrame {
 //           
 //        });
     }
-     public void openEditAccount() {
-        EditAccountForm updateForm = new EditAccountForm(this); // Pass the `MyAccount` instance
-        updateForm.setVisible(true);
-    }
-     void display(){
-        try{
-           
-            PreparedStatement ps=con.prepareStatement("select * from login1 where uname=?");
-        
-        ps.setString(1,Global.username);
-        
-       
-         ResultSet rs=ps.executeQuery();
-        if(rs.next())
-        {
-             
-              Global.username= rs.getString("uname");
-              Global.email=rs.getString("email");
-         Global.password=rs.getString("password");
-         Global.phone=rs.getString("phonenum");
-         Global.location=rs.getString("location");
-            uname.setText(Global.username); 
-            email.setText(Global.email); 
-            location.setText(Global.location); 
-            password.setText(Global.password); 
-            phone.setText(Global.phone); 
-        }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+//     public void openEditAccount() {
+//        EditAccountForm updateForm = new EditAccountForm(this); // Pass the `MyAccount` instance
+//        updateForm.setVisible(true);
+//    }
+//     void display(){
+//        try{
+//           
+//            PreparedStatement ps=con.prepareStatement("select * from login1 where uname=?");
+//        
+//        ps.setString(1,Global.username);
+//        
+//       
+//         ResultSet rs=ps.executeQuery();
+//        if(rs.next())
+//        {
+//             
+//              Global.username= rs.getString("uname");
+//              Global.email=rs.getString("email");
+//         Global.password=rs.getString("password");
+//         Global.phone=rs.getString("phonenum");
+//         Global.location=rs.getString("location");
+//            uname.setText(Global.username); 
+//            email.setText(Global.email); 
+//            location.setText(Global.location); 
+//            password.setText(Global.password); 
+//            phone.setText(Global.phone); 
+//        }
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//        }
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -306,7 +306,7 @@ public class MyAccountForm extends javax.swing.JFrame {
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
         // TODO add your handling code here:
-         openEditAccount();
+//         openEditAccount();
     }//GEN-LAST:event_editActionPerformed
 
     /**

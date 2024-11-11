@@ -51,7 +51,6 @@ public class SignUpForm extends javax.swing.JFrame {
         pass = new javax.swing.JPasswordField();
         show = new javax.swing.JCheckBox();
         SignB = new java.awt.Button();
-        closeB = new java.awt.Button();
         loginAcc = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         uType = new javax.swing.JComboBox();
@@ -146,16 +145,6 @@ public class SignUpForm extends javax.swing.JFrame {
             }
         });
 
-        closeB.setBackground(new java.awt.Color(255, 153, 0));
-        closeB.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        closeB.setForeground(new java.awt.Color(255, 255, 255));
-        closeB.setLabel("X");
-        closeB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeBActionPerformed(evt);
-            }
-        });
-
         loginAcc.setBackground(new java.awt.Color(255, 255, 255));
         loginAcc.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         loginAcc.setForeground(new java.awt.Color(255, 102, 0));
@@ -195,13 +184,11 @@ public class SignUpForm extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(loginAcc)
-                                .addGap(148, 148, 148))
+                                .addComponent(loginAcc))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(166, 166, 166)))
-                        .addComponent(closeB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118))
+                                .addGap(18, 18, 18)))
+                        .addGap(293, 293, 293))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
                         .addComponent(SignB, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(263, 263, 263))
@@ -235,13 +222,8 @@ public class SignUpForm extends javax.swing.JFrame {
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(closeB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(loginAcc)
@@ -293,7 +275,6 @@ public class SignUpForm extends javax.swing.JFrame {
         bg.setLayer(pass, javax.swing.JLayeredPane.DEFAULT_LAYER);
         bg.setLayer(show, javax.swing.JLayeredPane.DEFAULT_LAYER);
         bg.setLayer(SignB, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        bg.setLayer(closeB, javax.swing.JLayeredPane.DEFAULT_LAYER);
         bg.setLayer(loginAcc, javax.swing.JLayeredPane.DEFAULT_LAYER);
         bg.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         bg.setLayer(uType, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -385,11 +366,6 @@ public class SignUpForm extends javax.swing.JFrame {
           }
     }//GEN-LAST:event_SignBActionPerformed
 
-    private void closeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_closeBActionPerformed
-
     private void loginAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginAccActionPerformed
         // TODO add your handling code here:
 
@@ -437,7 +413,6 @@ public class SignUpForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button SignB;
     private javax.swing.JLayeredPane bg;
-    private java.awt.Button closeB;
     private javax.swing.JTextField email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
