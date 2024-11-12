@@ -300,7 +300,7 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
         Bill.setBackground(new java.awt.Color(255, 153, 0));
         Bill.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         Bill.setForeground(new java.awt.Color(255, 255, 255));
-        Bill.setText("Generate Today Bill");
+        Bill.setText("View Today Bill");
         Bill.setContentAreaFilled(false);
         Bill.setOpaque(true);
         Bill.addActionListener(new java.awt.event.ActionListener() {
@@ -534,8 +534,9 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 public void openEditAccount() {
-        AdminDash account=new AdminDash();
-        EditAccountForm updateForm = new EditAccountForm(account); // Pass the `MyAccount` instance
+        AdminDash account=new AdminDash(); 
+        Connection con=DbConnect.connectDb();
+        EditAccountForm updateForm = new EditAccountForm(con,this,account); // Pass the `MyAccount` instance
         updateForm.setVisible(true);
     }
      void display(){

@@ -104,7 +104,9 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
 
     }
 public void openEditAccount() {
-        EditAccountForm updateForm = new EditAccountForm(this); // Pass the `MyAccount` instance
+    CustomerDashboard account1 = new CustomerDashboard();
+    Connection con=DbConnect.connectDb();
+        EditAccountForm updateForm = new EditAccountForm(con,account1,this); // Pass the `MyAccount` instance
         updateForm.setVisible(true);
     }
      void display(){

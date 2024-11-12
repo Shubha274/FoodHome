@@ -8,6 +8,7 @@ package FoodHome;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import model.Global;
@@ -22,12 +23,14 @@ public class EditAccountForm extends javax.swing.JFrame {
      * Creates new form EditAccount
      */
      Connection con=DbConnect.connectDb();
-     private AdminDash account;
-   
-    public EditAccountForm(AdminDash account) {
-         this.account = account;
-        initComponents();
-    }
+     private CustomerDashboard customerDashboard;
+private AdminDash adminDashboard;
+    public EditAccountForm(Connection con, CustomerDashboard customerDashboard, AdminDash adminDashboard) {
+    this.con = con;
+    this.customerDashboard = customerDashboard;
+    this.adminDashboard = adminDashboard;
+    initComponents();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -269,46 +272,58 @@ public class EditAccountForm extends javax.swing.JFrame {
     }//GEN-LAST:event_showActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        // TODO add your handling code here:
-        if (uname.getText().isEmpty() || String.valueOf(pass.getPassword()).isEmpty() ||
+       if (!validateFields()) return;
+
+    try {
+        String sql = "UPDATE login1 SET uname=?, email=?, password=?, location=?, phonenum=? WHERE uname=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, uname.getText());
+        ps.setString(2, email.getText());
+        ps.setString(3, new String(pass.getPassword()));
+        ps.setString(4, location.getText());
+        ps.setString(5, phone.getText());
+        ps.setString(6, Global.username);
+
+        int rowsAffected = ps.executeUpdate();
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, uname.getText() + ", your account details have been updated successfully.");
+
+            Global.username = uname.getText(); // Update Global username if it has changed
+
+            // Refresh dashboards with updated account details
+            if (customerDashboard != null) customerDashboard.display();
+            if (adminDashboard != null) adminDashboard.display();
+
+            dispose(); // Close the update window
+        } else {
+            JOptionPane.showMessageDialog(null, "No matching records found to update. Please check the username.");
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "SQL Error: " + e.getMessage());
+        e.printStackTrace();
+    }
+    }
+
+// Method to validate fields
+private boolean validateFields() {
+    if (uname.getText().isEmpty() || String.valueOf(pass.getPassword()).isEmpty() ||
         email.getText().isEmpty() || location.getText().isEmpty() ||
         phone.getText().isEmpty()) {
 
         JOptionPane.showMessageDialog(null, "All fields are required");
-        return;
+        return false;
+    } else if (phone.getText().length() != 10) {
+        JOptionPane.showMessageDialog(null, "Phone number must have exactly 10 digits.");
+        return false;
+    } else if (!email.getText().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
+        JOptionPane.showMessageDialog(null, "Please enter a valid email address.");
+        return false;
     }
-          else if(phone.getText().length()<10 || phone.getText().length()>10)
-        JOptionPane.showMessageDialog(null, "phone number must have 10 digits");
-          else{
-    try {
-        String sql = "Update login1 set uname=?, email=?, password=?, location=?, phonenum=? where uname=?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        
-        ps.setString(1, uname.getText());
-        ps.setString(2, email.getText());
-        ps.setString(3, new String(pass.getPassword())); // Use getPassword for better security
-        ps.setString(4, location.getText());
-        ps.setString(5, phone.getText());
-        ps.setString(6, Global.username);
-        Global.username=uname.getText();
-        if (ps.executeUpdate() > 0) {
-                JOptionPane.showMessageDialog(null, uname.getText() + " your account details have been updated successfully.");
+    return true;
 
-                // Assuming MyAccount is still open, call the loadAccountDetails method
-                if (account != null) {
-            account.display(); // Call the refresh method directly on MyAccount
-        }
-                
-               dispose(); // Close the current update window
-            } else {
-                JOptionPane.showMessageDialog(null, "Changes couldn't be performed. Sorry for the inconvenience.");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An error occurred during the update.");
-            e.printStackTrace();
-        }
+
     }//GEN-LAST:event_saveActionPerformed
-    }
+    
     /**
      * @param args the command line arguments
      */
@@ -340,7 +355,10 @@ public class EditAccountForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                EditAccountForm updateForm = new EditAccountForm(null); // Pass `MyAccount` instance
+                CustomerDashboard customerDashboardInstance = new CustomerDashboard();
+AdminDash adminDashboardInstance = new AdminDash();
+Connection con=DbConnect.connectDb();
+                EditAccountForm updateForm = new EditAccountForm(con, customerDashboardInstance, adminDashboardInstance); // Pass `MyAccount` instance
 updateForm.setVisible(true);
                 
             }
