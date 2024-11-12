@@ -162,7 +162,7 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         uType.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        uType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select User", "Admin", "Customer" }));
+        uType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select User", "Seller", "Customer" }));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("+91");

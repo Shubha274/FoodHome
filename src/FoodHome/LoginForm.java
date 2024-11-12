@@ -282,7 +282,7 @@ public class LoginForm extends javax.swing.JFrame {
          Global.location=rs.getString("location");
               JOptionPane.showMessageDialog(null,"Welcome "+uname.getText());
                String userType = rs.getString("usertype");
-            if ("Admin".equalsIgnoreCase(userType)) {
+            if ("Seller".equalsIgnoreCase(userType)) {
                 new AdminDash().setVisible(true);
             } else if ("Customer".equalsIgnoreCase(userType)) {
                 new CustomerDashboard().setVisible(true);

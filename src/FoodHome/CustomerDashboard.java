@@ -20,7 +20,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.Vector;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -30,7 +32,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import model.Global;
@@ -85,8 +89,8 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         orderTable = new javax.swing.JTable();
+        Bill = new javax.swing.JButton();
         aboutPanel = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         aboutArea = new javax.swing.JTextArea();
@@ -264,7 +268,7 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
 
         jLabel3.setFont(new java.awt.Font("Cambria Math", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("         Today   Orders");
+        jLabel3.setText("         Orderd Items");
 
         orderTable.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         orderTable.setForeground(new java.awt.Color(0, 153, 153));
@@ -293,6 +297,18 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
         orderTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(orderTable);
 
+        Bill.setBackground(new java.awt.Color(255, 153, 0));
+        Bill.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        Bill.setForeground(new java.awt.Color(255, 255, 255));
+        Bill.setText("Generate Today Bill");
+        Bill.setContentAreaFilled(false);
+        Bill.setOpaque(true);
+        Bill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BillActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout viewOrderPanelLayout = new javax.swing.GroupLayout(viewOrderPanel);
         viewOrderPanel.setLayout(viewOrderPanelLayout);
         viewOrderPanelLayout.setHorizontalGroup(
@@ -304,8 +320,11 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1206, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(viewOrderPanelLayout.createSequentialGroup()
                         .addGap(542, 542, 542)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(viewOrderPanelLayout.createSequentialGroup()
+                        .addGap(642, 642, 642)
+                        .addComponent(Bill, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1426, Short.MAX_VALUE))
         );
         viewOrderPanelLayout.setVerticalGroup(
             viewOrderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,15 +333,14 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addComponent(Bill, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(450, Short.MAX_VALUE))
         );
 
         dashB.addTab("tab6", viewOrderPanel);
 
         aboutPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Homeicon.png"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 3, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 51, 0));
@@ -346,37 +364,31 @@ orderTable.getTableHeader().setForeground(new Color(255,255,255));
             .addGroup(aboutPanelLayout.createSequentialGroup()
                 .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(aboutPanelLayout.createSequentialGroup()
-                        .addGap(328, 328, 328)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(aboutPanelLayout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1687, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(aboutPanelLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGap(248, 248, 248)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1030, Short.MAX_VALUE))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addGap(687, 687, 687)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(aboutPanelLayout.createSequentialGroup()
+                        .addGap(323, 323, 323)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1361, Short.MAX_VALUE))
         );
         aboutPanelLayout.setVerticalGroup(
             aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aboutPanelLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(aboutPanelLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(aboutPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addGap(45, 45, 45))
         );
 
         dashB.addTab("", aboutPanel);
@@ -601,10 +613,14 @@ public void openEditAccount() {
         //JTextArea appInfoText = new JTextArea();
         aboutArea.setText(
 
-            "Food Home is an innovative platform that allows cloud kitchens like ours to reach a broader audience and deliver high-quality meals directly to customers. \nAs a cloud kitchen owner, we understand the challenges of maintaining an online presence while keeping operational costs low. \nWith Food Home, we can showcase our menu, reach a large base of potential customers, and focus on what we do best – cooking delicious food.\n\n\n" +
-            "The platform offers a user-friendly interface, allowing customers to browse through various dishes, view images, check prices, and place orders with \njust a few taps. As a cloud kitchen, we can easily update our menu in real-time, making sure customers always have access to the latest offerings. \nThis flexibility helps us respond to market demand and keep our menu fresh and exciting.\n\n\n" +
-            "Food Home’s efficient delivery system ensures that our food reaches customers quickly and safely.\n With its seamless payment integration, customers can complete their transactions securely, \nand we can focus on preparing great food without worrying about the logistics.\n\n\n" +
-            "What sets Food Home apart is its dedication to supporting cloud kitchens like ours. \nInstead of managing our own delivery system, Food Home takes care of the promotion and logistics, allowing us to reduce overhead costs. \nThe app helps us expand our customer base by putting us in front of people who are actively searching for fresh and tasty food options."
+         "Discover food that excites your taste buds with Food Home! We bring you a curated selection of \nlocal cloud kitchens, " +
+                "offering a range of delicious,handcrafted dishes – from comfort classics\n to adventurous new flavors. " +
+                "With Food Home, you’ll enjoy:\n\n\n" +
+                "-> Unique Menus: Find dishes made with love by passionate chefs from local cloud kitchens you won’t find anywhere else.\n" +
+                "-> Simple and Convenient Ordering: Browse, order, and enjoy amazing food from the comfort of your home.\n" +
+                "-> Support for Small Businesses: Every order helps support local kitchens,fueling small business growth in your community.\n\n" +
+                "Elevate your dining experience with Food Home, where every meal is crafted with quality and convenience in mind. \n\n\n" +
+                "Your next favorite dish is just a click away!"
         );
 
         aboutArea.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -670,6 +686,96 @@ public void openEditAccount() {
         // TODO add your handling code here:
         openEditAccount();
     }//GEN-LAST:event_editActionPerformed
+
+    private void BillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillActionPerformed
+        // TODO add your handling code here:
+        // Action listener for "Generate Today's Bill" button
+
+    // Action listener for "Generate Today's Bill" button
+
+    try {
+        // SQL query to fetch today's orders
+        String query = "SELECT product1.prodname, " +
+                       "order1.quantity, " +
+                       "product1.price, " +
+                       "(order1.quantity * product1.price) AS total_price " +
+                       "FROM order1 " +
+                       "JOIN product1 ON order1.prodid = product1.prodid " +
+                       "WHERE order1.uname = ? AND order1.orderdate = CURRENT_DATE " +
+                       "ORDER BY order1.ordertime";
+
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, Global.username); // Set the username parameter
+
+        ResultSet rs = ps.executeQuery();
+
+        // Get the current date and time
+        String currentDate = java.time.LocalDate.now().toString();
+        String currentTime = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
+double grandTotal = 0.0;
+        // Build the bill content
+        // Generate the bill content
+// Generate the bill content
+StringBuilder billContent = new StringBuilder();
+billContent.append("=== Bill ===\n");
+billContent.append("Date: ").append(currentDate).append("\n");
+billContent.append("Time: ").append(currentTime).append("\n");
+billContent.append("=============================================\n");
+billContent.append(String.format("%-20s %-10s %-10s %-10s\n", "Product", "Quantity", "Price", "Total"));
+billContent.append("=============================================\n");
+
+// Example of iterating over the result set and adding data
+while (rs.next()) {
+    String prodname = rs.getString("prodname");
+    int quantity = rs.getInt("quantity");
+    double price = rs.getDouble("price");
+    double totalPrice = rs.getDouble("total_price");
+grandTotal+=totalPrice;
+    // Format each product's information with alignment
+    billContent.append(String.format("%-20s %-10d %-10.2f %-10.2f\n", prodname, quantity, price, totalPrice));
+}
+
+// Add the grand total at the bottom
+billContent.append("=============================================\n");
+billContent.append(String.format("Grand Total: %.2f\n", grandTotal));
+
+// Create a JTextArea for bill content
+JTextArea billTextArea = new JTextArea(billContent.toString());
+billTextArea.setFont(new Font("Monospaced", Font.PLAIN, 24));  // Monospaced font for alignment
+billTextArea.setEditable(false);  // Make it non-editable
+billTextArea.setBackground(Color.WHITE);  // Set background to white
+ // Set padding around the text
+billTextArea.setMargin(new Insets(10, 10, 10, 10));  // Set padding around the text
+
+// Set the border of JTextArea to null
+billTextArea.setBorder(null);
+
+// Wrap the content in a JScrollPane for scrolling if the text is long
+JScrollPane scrollPane = new JScrollPane(billTextArea);
+scrollPane.setBorder(null);
+
+// Create the panel to display the bill
+JPanel billPanel = new JPanel();
+billPanel.setLayout(new BorderLayout());
+billPanel.setBackground(Color.WHITE);  // Set background color to white
+billPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 0, 0));  // 20px padding from top and left
+
+// Add the scrollPane with bill content to the panel (west of the panel)
+billPanel.add(scrollPane, BorderLayout.WEST);
+
+// Add the bill panel as a new tab in dasB tabbed pane
+dashB.addTab("Today's Bill", billPanel);
+dashB.setSelectedComponent(billPanel);  // Automatically select the new tab
+
+
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Error generating today's bill: " + ex.getMessage());
+        ex.printStackTrace();
+    }
+
+
+
+    }//GEN-LAST:event_BillActionPerformed
 private void loadMenuItems() {
  
 
@@ -891,58 +997,86 @@ private void addToOrder(int productId, int quantity,String name) {
                     
 }
 private void loadOrdersData() {
-        try {
-    // SQL query to fetch today's orders for the particular user
-    String query = "SELECT order1.uname, login1.phonenum, order1.ordertime, product1.prodname, order1.quantity,login1.location " +
-                   "FROM order1 " +
-                   "JOIN product1 ON order1.prodid = product1.prodid " +
-                   "JOIN login1 ON order1.uname = login1.uname " +
-                   "WHERE product1.uname = ? AND order1.orderdate = CURRENT_DATE " +
-                   "ORDER BY order1.uname, order1.ordertime";
+    try {
+        // SQL query to fetch all past orders, including price, grouped by date
+        String query = "SELECT product1.prodname, login1.location, product1.price,order1.quantity, order1.ordertime, order1.orderdate " +
+                       "FROM order1 " +
+                       "JOIN product1 ON order1.prodid = product1.prodid " +
+                       "JOIN login1 ON order1.uname = login1.uname " +
+                       "WHERE order1.uname = ? " +
+                       "ORDER BY order1.orderdate, order1.ordertime";
 
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, Global.username);
+        ResultSet rs = ps.executeQuery();
 
-    // Prepare the statement using the connection
-    PreparedStatement ps = con.prepareStatement(query);
-    ps.setString(1, Global.username);  // Set the username parameter from Global.username
+        ResultSetMetaData metaData = rs.getMetaData();
+        int columnCount = metaData.getColumnCount();
+        Vector<String> columnNames = new Vector<>();
 
-    // Execute the query
-    ResultSet rs = ps.executeQuery();
-
-    // Get column names and data from ResultSet
-    ResultSetMetaData metaData = rs.getMetaData();
-    int columnCount = metaData.getColumnCount();
-    Vector<String> columnNames = new Vector<>();
-
-    // Add column names to the vector
-    for (int i = 1; i <= columnCount; i++) {
-        columnNames.add(metaData.getColumnName(i));
-    }
-
-    // Add data rows to the vector
-    Vector<Vector<Object>> data = new Vector<>();
-    while (rs.next()) {
-        Vector<Object> row = new Vector<>();
+        // Add column names to the vector
         for (int i = 1; i <= columnCount; i++) {
-            row.add(rs.getObject(i));
+            columnNames.add(metaData.getColumnName(i));
         }
-        data.add(row);
+        columnNames.add("TOTAL PRICE");  // Adding the new column for product total price
+
+        Vector<Vector<Object>> data = new Vector<>();
+        double dailyGrandTotal = 0.0;
+        String currentOrderDate = null;
+
+        while (rs.next()) {
+            String orderDate = rs.getString("orderdate");
+
+            // When a new date is encountered, add a row for the previous day's grand total
+            if (currentOrderDate != null && !currentOrderDate.equals(orderDate)) {
+                Vector<Object> dailyTotalRow = new Vector<>(Collections.nCopies(columnCount + 1, "")); // Adjusted size
+                dailyTotalRow.set(columnCount - 1, "Total");
+                dailyTotalRow.set(columnCount, dailyGrandTotal);  // Adding daily total in the last column
+                data.add(dailyTotalRow);
+
+                // Reset daily grand total for the new day
+                dailyGrandTotal = 0.0;
+            }
+            currentOrderDate = orderDate;
+
+            Vector<Object> row = new Vector<>();
+            for (int i = 1; i <= columnCount; i++) {
+                row.add(rs.getObject(i));
+            }
+
+            // Calculate total price for the row (quantity * price)
+            double quantity = rs.getDouble("quantity");
+            double price = rs.getDouble("price");
+            double totalPrice = quantity * price;
+            row.add(totalPrice);
+
+            // Accumulate the daily grand total
+            dailyGrandTotal += totalPrice;
+
+            data.add(row);
+        }
+
+        // Add the final daily total row if there were any rows
+        if (currentOrderDate != null) {
+            Vector<Object> dailyTotalRow = new Vector<>(Collections.nCopies(columnCount + 1, ""));
+            dailyTotalRow.set(columnCount - 1, "Total");
+            dailyTotalRow.set(columnCount, dailyGrandTotal);  // Adding final daily total to the last column
+            data.add(dailyTotalRow);
+        }
+
+        // Set the table model with column names and data
+        orderTable.setModel(new DefaultTableModel(data, columnNames));
+
+        // Close the resources
+        rs.close();
+        ps.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error loading orders: " + e.getMessage());
+        e.printStackTrace();
     }
-
-    // Set the table model with column names and data
-    orderTable.setModel(new DefaultTableModel(data, columnNames));
-
-    // Close the resources
-    rs.close();
-    ps.close();
-} catch (SQLException e) {
-    JOptionPane.showMessageDialog(this, "Error loading today's orders: " + e.getMessage());
 }
 
-
-}
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -979,6 +1113,7 @@ private void loadOrdersData() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bill;
     private javax.swing.JPanel MenuPanel;
     private javax.swing.JButton SignoutB;
     private javax.swing.JLabel UserName;
@@ -1001,7 +1136,6 @@ private void loadOrdersData() {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
