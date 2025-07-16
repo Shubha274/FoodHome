@@ -702,6 +702,11 @@ public void openEditAccount() {
         jLabel12.setText("Stock:");
 
         stock.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockActionPerformed(evt);
+            }
+        });
 
         price.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         price.addActionListener(new java.awt.event.ActionListener() {
@@ -1511,6 +1516,10 @@ private void addProductToInventory() {
     private void priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_priceActionPerformed
+
+    private void stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stockActionPerformed
 private void loadMenuItems() {
  
 
