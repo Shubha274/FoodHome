@@ -26,7 +26,7 @@
 - 📦 **Inventory & Order Management**: Sellers can manage food items and order processing.
 - 📊 **Monthly Order Analytics**: Uses **JFreeChart** for seller-side data visualization.
 - 🧑‍💻 **Profile Management**: Allows users to securely update personal information.
-- 🖼️ **Menu with Images**: Customers view food items with pictures before ordering.
+- 🖼️ **Menu **: Customers can order their favourite food.
 
 ---
 
