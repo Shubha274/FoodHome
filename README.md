@@ -41,11 +41,11 @@
 
 ---
 
-## 📸 Screenshots
+
 
 ## 📸 Screenshots
 ### 🏠 Login Page  
-![Home](./screenShots/Login_Form.png)
+![Home](./screenShots/login.png)
 ### 🏠 Home Page  
 ![Home](./Screenshots/homepage1.png)
 ![Home](./Screenshots/homepage2.png)
