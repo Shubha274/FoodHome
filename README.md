@@ -45,7 +45,7 @@
 
 ## 📸 Screenshots
 ### 🏠 Login Page  
-![Home](./screenShots/login.png)
+![Home](./screenShots/Login.png)
 ### 🏠 Home Page  
 ![Home](./Screenshots/homepage1.png)
 ![Home](./Screenshots/homepage2.png)
